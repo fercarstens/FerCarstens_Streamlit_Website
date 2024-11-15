@@ -148,7 +148,7 @@ with st.form(key="contact_form"):
             st.error("Por favor, completa todos los campos antes de enviar el formulario.")
 
 # Imagen de perfil
-st.image("images/20220521-IMG_4478.jpg", width=100, caption="FerCarstens", use_column_width=False)
+# st.image("images/20220521-IMG_4478.jpg", width=100, caption="FerCarstens", use_column_width=False)
 
 # Footer
 st.write("---")
