@@ -1,0 +1,49 @@
+# Función para ejecutar consultas SQL y devolver resultados como DataFrame
+def run_query(query, db_file):
+    """Ejecuta una consulta SQL en la base de datos y devuelve los resultados como un DataFrame."""
+    conn = connect_to_db(db_file)
+    result_df = pd.read_sql_query(query, conn)
+    conn.close()
+    return result_df
+
+# Mostrar tablas disponibles en la base de datos
+try:
+    conn = connect_to_db(db_file)
+    query = "SELECT name FROM sqlite_master WHERE type='table';"
+    tables = pd.read_sql_query(query, conn)["name"].tolist()
+    conn.close()
+
+    st.write("**Tablas disponibles en la base de datos:**")
+    if tables:
+        selected_table = st.selectbox("Selecciona una tabla para visualizar:", tables)
+        
+        # Mostrar datos de la tabla seleccionada
+        if selected_table:
+            st.write(f"**Mostrando datos de la tabla `{selected_table}`:**")
+            query = f"SELECT * FROM {selected_table} LIMIT 100;"  # Muestra las primeras 100 filas
+            data = run_query(query, db_file)
+            st.dataframe(data)  # Muestra los datos en un formato interactivo
+    else:
+        st.warning("No se encontraron tablas en la base de datos.")
+except Exception as e:
+    st.error(f"No se pudo conectar a la base de datos: {e}")
+
+
+
+
+
+
+
+
+
+# Consulta 1
+elif consulta == "Consulta 1":
+    st.subheader("Obtener las carreras con nota máxima por debajo de la media")
+    # Botón para ejecutar la consulta
+    if st.button("Ejecutar consulta"):
+        query = """
+# aqui la query
+        """
+        datos = run_query(query, db_file)
+        st.write("Resultados de la consulta:")
+        st.dataframe(datos)
