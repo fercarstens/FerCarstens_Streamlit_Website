@@ -233,7 +233,7 @@ elif consulta == "Consulta 10":
 st.write("---")
 
 # Redes sociales
-st.header("Conéctate Conmigo :handshake:")
+st.header("Conéctate Conmigo :handshake::handshake:")
 st.write("""
 - [GitHub](https://github.com/fercarstens)
 - [LinkedIn](https://www.linkedin.com/in/fercarstens/)
