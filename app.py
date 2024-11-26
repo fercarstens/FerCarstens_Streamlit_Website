@@ -115,8 +115,8 @@ elif consulta == "Consulta 2":
         query = """
         SELECT es.ID, es.Nombre_Est, un.Nombre_Univ, es.Nota, un.Plazas
         FROM Estudiantes es
-        LEFT JOIN Solicitudes so on es.ID=so.ID
-        LEFT JOIN Universidades un on so.Nombre_Univ=un.Nombre_Univ
+        JOIN Solicitudes so on es.ID=so.ID
+        JOIN Universidades un on so.Nombre_Univ=un.Nombre_Univ
         ORDER BY es.Nota DESC, un.Plazas;
                 """
         datos = run_query(query, db_file)
